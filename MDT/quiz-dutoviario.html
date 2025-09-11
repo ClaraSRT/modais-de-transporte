@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Dutoviário - Modais de Transporte</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-dutoviario">
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-title">🚛 Modais de Transporte</h1>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <a href="maquete.html" class="nav-link">Maquete 3D</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="modal-detail-header">
+        <div class="container">
+            <div class="modal-detail-icon">
+                🏭
+            </div>
+            <h1>Modal Dutoviário</h1>
+            <p>Transporte através de tubulações</p>
+        </div>
+    </section><br><br>
+
+  <section class="quiz-container">
+    <div class="container">
+      <h2><i class="fas fa-industry"></i> Quiz Dutoviário</h2>
+      <h3><p>Responda as perguntas sobre transporte por dutos!</p></h3><br><br>
+      <form id="quiz-form-dutoviario">
+        <div class="quiz-question">
+          <h3>1. O que é transporte dutoviário?</h3>
+          <label><input type="radio" name="q1" value="0"> Transporte feito por navios</label><br>
+          <label><input type="radio" name="q1" value="1"> Transporte feito por tubos especiais chamados dutos</label><br>
+          <label><input type="radio" name="q1" value="2"> Transporte feito por caminhões</label><br>
+          <label><input type="radio" name="q1" value="3"> Transporte feito por aviões</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>2. Quais produtos são transportados pelos dutos?</h3>
+          <label><input type="radio" name="q2" value="0"> Apenas alimentos.</label><br>
+          <label><input type="radio" name="q2" value="1"> Somente roupas e calçados.</label><br>
+          <label><input type="radio" name="q2" value="2"> Minério, petróleo e derivados, álcool, gás e produtos químicos</label><br>
+          <label><input type="radio" name="q2" value="3"> Apenas eletrônicos.</label><br>
+        </div><br>
+        
+        <div class="quiz-question">
+          <h3>3. Qual é o nome do duto usado para transportar gases?</h3>
+          <label><input type="radio" name="q3" value="0"> Mineroduto</label><br>
+          <label><input type="radio" name="q3" value="1"> Gasoduto</label><br>
+          <label><input type="radio" name="q3" value="2"> Oleoduto</label><br>
+          <label><input type="radio" name="q3" value="3"> Poliduto</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>4. Os dutos usados para transportar petróleo e seus derivados recebem o nome de:</h3>
+          <label><input type="radio" name="q4" value="0"> Oleodutos</label><br>
+          <label><input type="radio" name="q4" value="1"> Gasodutos</label><br>
+          <label><input type="radio" name="q4" value="2"> Minerodutos</label><br>
+          <label><input type="radio" name="q4" value="3"> Polidutos</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>5. Dutos instalados abaixo da terra são chamados de:</h3>
+          <label><input type="radio" name="q5" value="0"> Submarinos</label><br>
+          <label><input type="radio" name="q5" value="1"> Aéreos</label><br>
+          <label><input type="radio" name="q5" value="2"> Subterrâneos</label><br>
+          <label><input type="radio" name="q5" value="3"> Aparentes</label><br>
+        </div><br><br>
+
+        <button type="submit" class="btn btn-dark"><i class="fas fa-play"></i> Enviar Respostas</button>
+
+      </form>
+      <div id="quiz-result" style="margin-top:1rem; font-weight:bold;"></div>
+    </div>
+  </section><br><br><br><br>
+  
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('quiz-form-dutoviario');
+      const resultDiv = document.getElementById('quiz-result');
+      const quiz = quizData.dutoviario;
+      const correctAnswers = quiz.questions.map(q => q.correct);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let score = 0;
+        let incorrectQuestions = [];
+        
+        const formData = new FormData(form);
+        const userAnswers = {};
+        for (let [key, value] of formData.entries()) {
+          userAnswers[key] = parseInt(value);
+        }
+
+        correctAnswers.forEach((correct, index) => {
+          const questionName = `q${index + 1}`;
+          const userAnswer = userAnswers[questionName];
+          if (userAnswer === correct) {
+            score++;
+          } else {
+            incorrectQuestions.push(index + 1);
+          }
+        });
+
+        const message = score >= 3 ? 
+          `Parabéns! Você acertou ${score} de 5 questões.` :
+          `Você acertou ${score} de 5 questões. Tente novamente para ganhar um prêmio!`;
+
+        resultDiv.textContent = message;
+
+        // Salvar a pontuação e redirecionar
+        quizManager.updateScore('dutoviario', score);
+        
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>

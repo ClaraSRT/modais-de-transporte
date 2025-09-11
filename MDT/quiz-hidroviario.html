@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Hidroviário - Modais de Transporte</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-hidroviario">
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-title">🚛 Modais de Transporte</h1>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <a href="maquete.html" class="nav-link">Maquete 3D</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="modal-detail-header">
+        <div class="container">
+            <div class="modal-detail-icon">🚢</div>
+            <h1>Modal Hidroviário</h1>
+            <p>Transporte de cargas e passageiros por vias aquáticas</p>
+        </div>
+    </section><br><br>
+
+  <section class="quiz-container">
+    <div class="container"><br>
+      <h2><i class="fas fa-ship"></i> Quiz Hidroviário</h2>
+      <h3><p>Responda as perguntas sobre transporte aquático!</p></h3><br>
+      <form id="quiz-form-hidroviario">
+        <div class="quiz-question">
+          <h3>1. O que caracteriza o modal hidroviário (ou aquaviário)?</h3>
+          <label><input type="radio" name="q1" value="0"> Transporte de cargas apenas em rodovias</label><br>
+          <label><input type="radio" name="q1" value="1"> Transporte aéreo de passageiros e mercadorias</label><br>
+          <label><input type="radio" name="q1" value="2"> Transporte realizado em rios, lagos, mares e oceanos</label><br>
+          <label><input type="radio" name="q1" value="3"> Transporte rápido de pequenas encomendas</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>2. Quais são os dois principais tipos de transporte hidroviário?</h3>
+          <label><input type="radio" name="q2" value="0"> Ferroviário e marítimo</label><br>
+          <label><input type="radio" name="q2" value="1"> Rodoviário e aéreo</label><br>
+          <label><input type="radio" name="q2" value="2"> Marítimo e fluvial</label><br>
+          <label><input type="radio" name="q2" value="3"> Urbano e intermunicipal</label><br>
+        </div><br>
+        
+        <div class="quiz-question">
+          <h3>3. Qual das alternativas corresponde a uma vantagem do modal hidroviário?</h3>
+          <label><input type="radio" name="q3" value="0"> Maior velocidade que o transporte aéreo</label><br>
+          <label><input type="radio" name="q3" value="1"> Alto custo por tonelada transportada</label><br>
+          <label><input type="radio" name="q3" value="2"> Alta capacidade de carga com baixo custo por quilômetro</label><br>
+          <label><input type="radio" name="q3" value="3"> Independência total de infraestrutura</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>4. Uma das principais desvantagens do transporte hidroviário é:</h3>
+          <label><input type="radio" name="q4" value="0"> Grande emissão de poluentes</label><br>
+          <label><input type="radio" name="q4" value="1"> Velocidade reduzida em comparação a outros modais</label><br>
+          <label><input type="radio" name="q4" value="2"> Baixa capacidade de carga</label><br>
+          <label><input type="radio" name="q4" value="3"> Não ser utilizado no comércio exterior</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>5. Qual hidrovia está entre os exemplos importantes no Brasil?</h3>
+          <label><input type="radio" name="q5" value="0"> Hidrovia do Tietê-Paraná</label><br>
+          <label><input type="radio" name="q5" value="1"> Hidrovia do Amazonas-Solimões</label><br>
+          <label><input type="radio" name="q5" value="2"> Hidrovia do Pantanal</label><br>
+          <label><input type="radio" name="q5" value="3"> Hidrovia do Tocantins-Pindaré</label><br>
+        </div><br><br>
+
+        <button type="submit" class="btn btn-dark"><i class="fas fa-play"></i> Enviar Respostas</button>
+
+      </form>
+      <div id="quiz-result" style="margin-top:1rem; font-weight:bold;"></div>
+    </div>
+  </section><br><br><br><br>
+  
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('quiz-form-hidroviario');
+      const resultDiv = document.getElementById('quiz-result');
+      const quiz = quizData.hidroviario;
+      const correctAnswers = quiz.questions.map(q => q.correct);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let score = 0;
+        let incorrectQuestions = [];
+        
+        const formData = new FormData(form);
+        const userAnswers = {};
+        for (let [key, value] of formData.entries()) {
+          userAnswers[key] = parseInt(value);
+        }
+
+        correctAnswers.forEach((correct, index) => {
+          const questionName = `q${index + 1}`;
+          const userAnswer = userAnswers[questionName];
+          if (userAnswer === correct) {
+            score++;
+          } else {
+            incorrectQuestions.push(index + 1);
+          }
+        });
+
+        const message = score >= 3 ? 
+          `Parabéns! Você acertou ${score} de 5 questões.` :
+          `Você acertou ${score} de 5 questões. Tente novamente para ganhar um prêmio!`;
+
+        resultDiv.textContent = message;
+
+        // Salvar a pontuação e redirecionar
+        quizManager.updateScore('hidroviario', score);
+        
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>

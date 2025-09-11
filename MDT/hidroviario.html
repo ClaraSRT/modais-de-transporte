@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Hidroviário - Modais de Transporte do Brasil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-hidroviario">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-title">🚛 Modais de Transporte</h1>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                    <a href="maquete.html" class="nav-link">Maquete 3D</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal Detail Header -->
+    <section class="modal-detail-header">
+        <div class="container">
+            <div class="modal-detail-icon">🚢</div>
+            <h1>Modal Hidroviário</h1>
+            <p>Transporte de cargas e passageiros por vias aquáticas</p>
+        </div>
+    </section>
+
+    <!-- Modal Detail Content -->
+    <section class="modal-detail-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Navigation -->
+                <div class="content-nav">
+                    <div class="card">
+                        <h3>Navegação</h3>
+                        <ul>
+                            <li><a href="#what-is"><i class="fas fa-info-circle"></i> O que é</a></li>
+                            <li><a href="#topics"><i class="fas fa-list"></i> Tópicos</a></li>
+                            <li><a href="#classification"><i class="fas fa-tags"></i> Classificação</a></li>
+                            <li><a href="#advantages"><i class="fas fa-thumbs-up"></i> Vantagens</a></li>
+                            <li><a href="#disadvantages"><i class="fas fa-thumbs-down"></i> Desvantagens</a></li>
+                            <li><a href="#brazil-relation"><i class="fas fa-flag"></i> Relação no Brasil</a></li>
+                            <li><a href="#gallery"><i class="fas fa-images"></i> Galeria</a></li>
+                        </ul>
+                        <div style="margin-top: 2rem;">
+                            <a href="quiz-hidroviario.html" class="btn btn-primary" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
+                                <i class="fas fa-question-circle"></i> Fazer Quiz
+                            </a>
+                            <a href="index.html" class="btn btn-secondary" style="width: 100%; justify-content: center;">
+                                <i class="fas fa-arrow-left"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- O que é -->
+                    <div class="content-section" id="what-is">
+                        <h2><i class="fas fa-info-circle"></i> O que é</h2>
+                        <p>O modal hidroviário, também conhecido como modal aquaviário, refere-se ao transporte de cargas e passageiros realizado por embarcações em vias navegáveis, como rios, lagos, mares e oceanos.
+                            É um dos modais de transporte mais antigos e ainda desempenha um papel importante no transporte de grandes volumes de mercadorias, especialmente para longas distâncias.
+                        </p>
+                    </div>
+
+                    <!-- Tópicos -->
+                    <div class="content-section" id="topics">
+                        <h2><i class="fas fa-list"></i> Tipos de transporte</h2>
+                        <div class="topic-grid">
+                            <div class="topic-item"><i class="fas fa-check-circle"></i><span>Marítimo (em mares e oceanos)</span></div>
+                            <div class="topic-item"><i class="fas fa-check-circle"></i><span>Fluvial (em rios e lagos).</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Classificação -->
+                    <div class="content-section" id="classification">
+                        <h2><i class="fas fa-tags"></i> Classificação</h2>
+                        <div class="classification-item"><h4>Navegação de longo curso: </h4><p>Ocorre quando as embarcações realizam rotas internacionais, cruzando oceanos e conectando diferentes países.</p></div>
+                        <div class="classification-item"><h4>Navegação de cabotagem: </h4><p>Acontece dentro do território nacional, ao longo da costa marítima.</p></div>
+                        <div class="classification-item"><h4>Navegação interior: </h4><p>Que se desenvolve em rios, lagos e canais.</p></div>
+                        <p>Essa classificação é importante porque ajuda a entender melhor as funções e os usos de cada rota dentro do transporte hidroviário.</p>
+                    </div>
+
+                    <!-- Vantagens -->
+                    <div class="content-section" id="advantages">
+                        <h2><i class="fas fa-thumbs-up" style="color: var(--success);"></i> Vantagens</h2>
+                        <ul class="advantages-list">
+                            <li><i class="fas fa-plus"></i><span>Alta capacidade de carga</span></li>
+                            <li><i class="fas fa-plus"></i><span>Possibilidade de transportar grandes volumes</span></li>
+                            <li><i class="fas fa-plus"></i><span>Baixo custo por tonelada/quilômetro em longas distâncias</span></li>
+                            <li><i class="fas fa-plus"></i><span>Menor impacto ambiental em comparação com outros modais</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Desvantagens -->
+                    <div class="content-section" id="disadvantages">
+                        <h2><i class="fas fa-thumbs-down" style="color: var(--danger);"></i> Desvantagens</h2>
+                        <ul class="disadvantages-list">
+                            <li><i class="fas fa-minus"></i><span>Pode ser mais lento do que outros modais</span></li>
+                            <li><i class="fas fa-minus"></i><span>Dependência de condições climáticas</span></li>
+                            <li><i class="fas fa-minus"></i><span>Infraestrutura necessária (hidrovias) pode ser limitada em algumas regiões</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Relação no Brasil -->
+                    <div class="content-section" id="brazil-relation">
+                        <h2><i class="fas fa-flag"></i> Relação no Brasil</h2>
+                        <p>No Brasil, o modal hidroviário é bastante relevante. Na região Norte, por exemplo, os rios funcionam como verdadeiras estradas, fundamentais para a locomoção de pessoas e o escoamento da produção. 
+                            Além disso, para o comércio exterior, o transporte marítimo tem papel essencial, já que é responsável por grande parte das exportações e importações do país. 
+                            O Brasil conta ainda com hidrovias estratégicas, como a Tietê-Paraná, a do rio São Francisco e a do Madeira, que contribuem para a integração logística nacional.</p><br>
+                        <h3>Em resumo:</h3>
+                        <p>O modal hidroviário é um meio de transporte essencial para o deslocamento de grandes volumes de carga e para o comércio internacional. 
+                             Ele apresenta vantagens e desvantagens que precisam ser avaliadas no planejamento logístico, mas sem dúvida desempenha um papel fundamental no desenvolvimento econômico e na integração regional do Brasil.</p>
+                    </div>
+
+                    <!-- Galeria -->
+                    <div class="content-section" id="gallery">
+                        <h2><i class="fas fa-images"></i> Galeria de Imagens</h2>
+                        <div class="gallery-grid">
+                            <div class="gallery-item"><img src="https://www.erudio.com.br/blog/wp-content/uploads/2021/07/foto11058_800-750x410.jpg" alt="Navio cargueiro"><div class="gallery-overlay"><p>Navios transportando contêineres</p></div></div>
+                            <div class="gallery-item"><img src="https://ferdinandodesousa.com/wp-content/uploads/2023/04/navegacao-no-rio-amazonas.jpg?w=1024" alt="Porto"><div class="gallery-overlay"><p>A bacia amazônica</p></div></div>
+                        </div> <div class="gallery-item"><img src="https://veja.abril.com.br/wp-content/uploads/2018/03/economia-container-porto-santos-20100308-005-copy.jpg?quality=70&strip=info&w=1280&h=720&crop=1" alt="Porto"><div class="gallery-overlay"><p>Porto com operações de carga</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer"><div class="container"><p>&copy; 2024 Modais de Transporte do Brasil. Projeto educativo sobre logística e transportes.</p></div></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

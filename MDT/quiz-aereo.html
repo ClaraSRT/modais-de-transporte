@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Aéreo - Modais de Transporte</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-aereo">
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-title">🚛 Modais de Transporte</h1>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <a href="maquete.html" class="nav-link">Maquete 3D</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="modal-detail-header">
+        <div class="container">
+            <div class="modal-detail-icon">✈️</div>
+            <h1>Modal Aéreo</h1>
+            <p>Transporte de cargas e passageiros pelo ar</p>
+        </div>
+    </section><br><br>
+
+  <section class="quiz-container">
+    <div class="container">
+      <h2><i class="fas fa-plane"></i> Quiz Aéreo</h2>
+      <h3><p>Responda as perguntas sobre transporte aéreo!</p></h3><br>
+      <form id="quiz-form-aereo">
+        <div class="quiz-question">
+          <h3>1. O que significa o termo "modal" no contexto dos transportes?</h3>
+          <label><input type="radio" name="q1" value="0"> Meio ambiente</label><br>
+          <label><input type="radio" name="q1" value="1"> Modalidade de transporte</label><br>
+          <label><input type="radio" name="q1" value="2"> Velocidade do transporte</label><br>
+          <label><input type="radio" name="q1" value="3"> Tipo de carga transportada</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>2. Qual o principal meio de transporte utilizado no modal aeroviário?</h3>
+          <label><input type="radio" name="q2" value="0"> Barcos</label><br>
+          <label><input type="radio" name="q2" value="1"> Caminhões</label><br>
+          <label><input type="radio" name="q2" value="2"> Aviões e helicópteros</label><br>
+          <label><input type="radio" name="q2" value="3"> Trens</label><br>
+        </div><br>
+        
+        <div class="quiz-question">
+          <h3>3. Qual é uma das maiores vantagens do modal aeroviário?</h3>
+          <label><input type="radio" name="q3" value="0"> Baixo custo de transporte</label><br>
+          <label><input type="radio" name="q3" value="1"> Alta capacidade de carga</label><br>
+          <label><input type="radio" name="q3" value="2"> Rapidez no deslocamento de pessoas e mercadorias</label><br>
+          <label><input type="radio" name="q3" value="3"> Funciona apenas para curtas distâncias</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>4. O modal aeroviário é mais recomendado para transportar:</h3>
+          <label><input type="radio" name="q4" value="0"> Grandes volumes de cargas comuns</label><br>
+          <label><input type="radio" name="q4" value="1"> Mercadorias de alto valor agregado e pequenas encomendas urgentes</label><br>
+          <label><input type="radio" name="q4" value="2"> Cargas pesadas em longas distâncias</label><br>
+          <label><input type="radio" name="q4" value="3"> Produtos perecíveis em volumes grandes e baratos</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>5. O modal aeroviário é caracterizado por ter:</h3>
+          <label><input type="radio" name="q5" value="0"> Baixa segurança e baixa pontualidade</label><br>
+          <label><input type="radio" name="q5" value="1"> Agilidade, pontualidade e segurança</label><br>
+          <label><input type="radio" name="q5" value="2"> Transporte lento e barato</label><br>
+          <label><input type="radio" name="q5" value="3"> Restrição para transporte de passageiros</label><br>
+        </div><br><br>
+
+        <button type="submit" class="btn btn-dark"><i class="fas fa-play"></i> Enviar Respostas</button>
+
+      </form>
+      <div id="quiz-result" style="margin-top:1rem; font-weight:bold;"></div>
+    </div>
+  </section><br><br><br><br>
+
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('quiz-form-aereo');
+      const resultDiv = document.getElementById('quiz-result');
+      const quiz = quizData.aereo;
+      const correctAnswers = quiz.questions.map(q => q.correct);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let score = 0;
+        let incorrectQuestions = [];
+        
+        const formData = new FormData(form);
+        const userAnswers = {};
+        for (let [key, value] of formData.entries()) {
+          userAnswers[key] = parseInt(value);
+        }
+
+        correctAnswers.forEach((correct, index) => {
+          const questionName = `q${index + 1}`;
+          const userAnswer = userAnswers[questionName];
+          if (userAnswer === correct) {
+            score++;
+          } else {
+            incorrectQuestions.push(index + 1);
+          }
+        });
+
+        const message = score >= 3 ? 
+          `Parabéns! Você acertou ${score} de 5 questões.` :
+          `Você acertou ${score} de 5 questões. Tente novamente para ganhar um prêmio!`;
+
+        resultDiv.textContent = message;
+
+        // Salvar a pontuação e redirecionar
+        quizManager.updateScore('aereo', score);
+        
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>

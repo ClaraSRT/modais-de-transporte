@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modais de Transporte do Brasil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-title">🚛 Modais de Transporte</h1>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                    <a href="maquete.html" class="nav-link">Maquete 3D</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">Modais de Transporte</h2>
+            <p class="hero-subtitle">Explore os cinco principais modais de transporte do Brasil através de uma experiência interativa e educativa</p>
+            <div class="hero-buttons">
+                <a href="quiz.html" class="btn btn-primary">
+                    <i class="fas fa-play"></i> Começar Quiz
+                </a>
+                <a href="maquete.html" class="btn btn-secondary">
+                    <i class="fas fa-cube"></i> Ver Maquete 3D
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals Section -->
+    <section class="modals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Conheça os Modais de Transporte</h2>
+                <p>Cada modal possui características únicas. Clique em cada um para explorar suas especificidades, vantagens e aplicações no Brasil.</p>
+            </div>
+            
+            <div class="modals-grid">
+                <!-- Dutoviário -->
+                <div class="modal-card" data-modal="dutoviario">
+                    <div class="modal-card-content">
+                        <div class="modal-header">
+                            <div class="modal-icon" style="background-color: #000000;">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>Dutoviário</h3>
+                        </div>
+                        <img src="https://static.todamateria.com.br/upload/55/5a/555a8c187c051-transporte-dutoviario-inserir-imagem.jpg" alt="Transporte por dutos">
+                        <p>Transporte através de tubulações para líquidos, gases e alguns sólidos granulados.</p>
+                        <div class="modal-footer">
+                            <span class="modal-badge" style="background-color: #000000;">🛢️ Petróleo & Gás</span>
+                            <span class="modal-link" style="color: #000000;">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ferroviário -->
+                <div class="modal-card" data-modal="ferroviario">
+                    <div class="modal-card-content">
+                        <div class="modal-header">
+                            <div class="modal-icon" style="background-color: #8B4513;">
+                                <i class="fas fa-train"></i>
+                            </div>
+                            <h3>Ferroviário</h3>
+                        </div>
+                        <img src="https://static.todamateria.com.br/upload/55/4b/554bf51d028e5-transporte-ferroviario.jpg" alt="Trem de carga">
+                        <p>Transporte sobre trilhos, ideal para grandes volumes e longas distâncias.</p>
+                        <div class="modal-footer">
+                            <span class="modal-badge" style="background-color: #8B4513;">📦 Carga Pesada</span>
+                            <span class="modal-link" style="color: #8B4513;">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidroviário -->
+                <div class="modal-card" data-modal="hidroviario">
+                    <div class="modal-card-content">
+                        <div class="modal-header">
+                            <div class="modal-icon" style="background-color: #0066CC;">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h3>Hidroviário</h3>
+                        </div>
+                        <img src="https://www.hivecloud.com.br/wp-content/uploads/2022/10/modal-aquaviario-1400x460.png" alt="Navio cargueiro">
+                        <p>Transporte aquático por rios, lagos, mares e oceanos usando embarcações.</p>
+                        <div class="modal-footer">
+                            <span class="modal-badge" style="background-color: #0066CC;">⚓ Marítimo & Fluvial</span>
+                            <span class="modal-link" style="color: #0066CC;">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rodoviário -->
+                <div class="modal-card" data-modal="rodoviario">
+                    <div class="modal-card-content">
+                        <div class="modal-header">
+                            <div class="modal-icon" style="background-color: #808080;">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3>Rodoviário</h3>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Caminhões em rodovia">
+                        <p>Transporte terrestre por estradas e rodovias usando veículos automotores.</p>
+                        <div class="modal-footer">
+                            <span class="modal-badge" style="background-color: #808080;">🛣️ Estradas</span>
+                            <span class="modal-link" style="color: #808080;">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aéreo -->
+                <div class="modal-card" data-modal="aereo">
+                    <div class="modal-card-content">
+                        <div class="modal-header">
+                            <div class="modal-icon" style="background-color: #CC0000;">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h3>Aéreo</h3>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Avião de carga">
+                        <p>Transporte pelo ar usando aeronaves para passageiros e cargas.</p>
+                        <div class="modal-footer">
+                            <span class="modal-badge" style="background-color: #CC0000;">✈️ Aviação</span>
+                            <span class="modal-link" style="color: #CC0000;">Saiba mais →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maquete Interativa -->
+                <div class="modal-card maquete-card">
+                    <div class="modal-card-content">
+                        <div class="modal-header">
+                            <div class="modal-icon" style="background-color: rgba(255, 255, 255, 0.2);">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3>Maquete Interativa</h3>
+                        </div>
+                        <img src="https://sdmntprcentralus.oaiusercontent.com/files/00000000-c464-61f5-8e25-03455d0ebc40/raw?se=2025-09-11T18%3A12%3A06Z&sp=r&sv=2024-08-04&sr=b&scid=6ec78085-83d0-58c2-b3cc-137eaf12b02f&skoid=ec8eb293-a61a-47e0-abd0-6051cc94b050&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-10T23%3A40%3A56Z&ske=2025-09-11T23%3A40%3A56Z&sks=b&skv=2024-08-04&sig=QvaXpMdm2N1xiGuVnctMD/CaE%2BqSVfXjZ/MvL%2BjW%2B7I%3D" alt="Infraestrutura integrada">
+                        <p>Visualize todos os modais integrados em uma maquete 3D interativa.</p>
+                        <div class="modal-footer">
+                            <span class="modal-badge">🖱️ Interativo</span>
+                            <span class="modal-link">Explorar →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Transporte no Brasil</h2>
+                <p>Dados sobre a utilização dos modais de transporte no país</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon" style="background-color: #808080;">🚛</div>
+                    <div class="stat-number" style="color: #808080;">65%</div>
+                    <div class="stat-label">Rodoviário</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon" style="background-color: #8B4513;">🚂</div>
+                    <div class="stat-number" style="color: #8B4513;">20%</div>
+                    <div class="stat-label">Ferroviário</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon" style="background-color: #0066CC;">🚢</div>
+                    <div class="stat-number" style="color: #0066CC;">13%</div>
+                    <div class="stat-label">Hidroviário</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon" style="background-color: #000000;">🏭</div>
+                    <div class="stat-number" style="color: #000000;">1.5%</div>
+                    <div class="stat-label">Dutoviário</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon" style="background-color: #CC0000;">✈️</div>
+                    <div class="stat-number" style="color: #CC0000;">0.5%</div>
+                    <div class="stat-label">Aéreo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Recursos Educativos</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Conteúdo Completo</h3>
+                    <p>Informações detalhadas sobre cada modal: conceitos, classificações, vantagens e desvantagens.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Quiz Interativo</h3>
+                    <p>25 perguntas (5 por modal) para testar seus conhecimentos e ganhar brindes surpresa.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Maquete 3D</h3>
+                    <p>Visualização interativa mostrando como cada modal funciona na prática.</p>
+                </div>
+            </div>
+        </div>
+    </section><br><br><br><br>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

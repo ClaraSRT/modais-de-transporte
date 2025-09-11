@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquete 3D Interativa - Modais de Transporte do Brasil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-title">🚛 Modais de Transporte</h1>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                    <a href="maquete.html" class="nav-link">Maquete 3D</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Maquete Header -->
+    <section class="quiz-header">
+        <div class="container">
+            <h2>Maquete Interativa 3D</h2>
+            <p>Explore a integração dos diferentes modais de transporte em uma representação tridimensional</p>
+        </div>
+    </section>
+
+    <!-- Maquete Viewer -->
+    <section class="container">
+        <div class="maquete-viewer" id="maquete-viewer">
+            <img src="https://sdmntprcentralus.oaiusercontent.com/files/00000000-c464-61f5-8e25-03455d0ebc40/raw?se=2025-09-11T18%3A12%3A06Z&sp=r&sv=2024-08-04&sr=b&scid=6ec78085-83d0-58c2-b3cc-137eaf12b02f&skoid=ec8eb293-a61a-47e0-abd0-6051cc94b050&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-10T23%3A40%3A56Z&ske=2025-09-11T23%3A40%3A56Z&sks=b&skv=2024-08-04&sig=QvaXpMdm2N1xiGuVnctMD/CaE%2BqSVfXjZ/MvL%2BjW%2B7I%3D" 
+                 alt="Vista panorâmica da infraestrutura integrada" 
+                 class="maquete-background">
+            
+            <div class="maquete-overlay" id="maquete-overlay">
+                <div>
+                    <i class="fas fa-play" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                    <h3>Maquete Interativa</h3>
+                    <p>Clique nas áreas coloridas ou use os controles para explorar cada modal</p>
+                </div>
+            </div>
+
+            <!-- Hotspots Interativos -->
+            <div class="maquete-hotspot hotspot-dutoviario" data-modal="dutoviario"
+                title="Clique para explorar o Modal Dutoviário"></div>
+
+            <div class="maquete-hotspot hotspot-ferroviario" data-modal="ferroviario"
+                title="Clique para explorar o Modal Ferroviário"></div>
+
+            <div class="maquete-hotspot hotspot-hidroviario" data-modal="hidroviario"
+                 title="Clique para explorar o Modal Hidroviário"></div>
+
+            <div class="maquete-hotspot hotspot-rodoviario" data-modal="rodoviario"
+                title="Clique para explorar o Modal Rodoviário"></div>
+
+            <div class="maquete-hotspot hotspot-aereo" data-modal="aereo"
+                title="Clique para explorar o Modal Aéreo"></div>
+        </div>
+        
+    </section>
+
+    <!-- Modal Info Panel -->
+    <div id="modal-info-panel" class="modal-info-panel" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center;">
+                <div id="info-modal-icon" class="modal-icon" style="margin-right: 1rem;"></div>
+                <div>
+                    <h3 id="info-modal-name" style="margin-bottom: 0.5rem;"></h3>
+                    <p id="info-modal-description" style="color: #666; margin: 0;"></p>
+                </div>
+            </div>
+            <div id="info-modal-stats" class="modal-badge" style="background: #e5e7eb; color: #374151;"></div>
+        </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button id="info-detail-btn" class="btn btn-primary">
+                <i class="fas fa-info-circle"></i> Ver Detalhes
+            </button>
+            <button id="info-quiz-btn" class="btn btn-secondary">
+                <i class="fas fa-question-circle"></i> Fazer Quiz
+            </button>
+            <button onclick="closeMaqueteInfo()" class="btn" style="background: #e5e7eb; color: #374151;">
+                <i class="fas fa-times"></i> Fechar
+            </button>
+        </div>
+    </div>
+
+    <!-- Maquete Controls -->
+    <section class="container">
+        <div class="maquete-controls">
+            <button class="maquete-control" data-modal="dutoviario" style="background-color: #000000;">
+                🏭 <span>Dutoviário</span>
+            </button>
+            <button class="maquete-control" data-modal="ferroviario" style="background-color: #8B4513;">
+                🚂 <span>Ferroviário</span>
+            </button>
+            <button class="maquete-control" data-modal="hidroviario" style="background-color: #0066CC;">
+                🚢 <span>Hidroviário</span>
+            </button>
+            <button class="maquete-control" data-modal="rodoviario" style="background-color: #808080;">
+                🚛 <span>Rodoviário</span>
+            </button>
+            <button class="maquete-control" data-modal="aereo" style="background-color: #CC0000;">
+                ✈️ <span>Aéreo</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Information Panel -->
+    <section class="container">
+        <div class="content-section">
+            <h2><i class="fas fa-info-circle"></i>Como Funciona a Maquete</h2>
+            <div class="content-grid">
+                <div>
+                    <h4>Navegação</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-mouse-pointer" style="color: var(--primary); margin-right: 0.5rem;"></i>
+                            Clique nos pontos coloridos para explorar
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-mouse-pointer" style="color: var(--primary); margin-right: 0.5rem;"></i>
+                            Use os botões para destacar cada modal
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-mouse-pointer" style="color: var(--primary); margin-right: 0.5rem;"></i>
+                            Observe as conexões entre os modais
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Recursos</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-info-circle" style="color: #2563eb; margin-right: 0.5rem;"></i>
+                            Informações detalhadas de cada modal
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-images" style="color: #16a34a; margin-right: 0.5rem;"></i>
+                            Galeria de imagens ilustrativas
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-chart-bar" style="color: #7c3aed; margin-right: 0.5rem;"></i>
+                            Estatísticas de uso no Brasil
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/maquete.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

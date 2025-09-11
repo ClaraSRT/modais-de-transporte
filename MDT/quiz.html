@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz dos Modais - Modais de Transporte do Brasil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-title">🚛 Modais de Transporte</h1>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html" class="nav-link">Início</a>
+                    <a href="quiz.html" class="nav-link">Quiz</a>
+                    <a href="maquete.html" class="nav-link">Maquete 3D</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2 class="hero-title">Quiz dos Modais</h2>
+            <p class="hero-subtitle">Teste seus conhecimentos! Responda 5 perguntas sobre cada modal de transporte e ganhe um brinde surpresa</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="quiz-stats">
+            <div class="quiz-stat">
+                <div class="quiz-stat-number" style="color: var(--primary);" id="total-score">0</div>
+                <div class="quiz-stat-label">Pontuação Total</div>
+            </div>
+            <div class="quiz-stat">
+                <div class="quiz-stat-number" style="color: var(--success);" id="completed-quizzes">0</div>
+                <div class="quiz-stat-label">Quiz Concluídos</div>
+            </div>
+            <div class="quiz-stat">
+                <div class="quiz-stat-number" style="color: #7c3aed;" id="prizes-earned">0</div>
+                <div class="quiz-stat-label">Brindes Ganhos</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="quiz-grid">
+            <div class="quiz-card">
+                <div class="quiz-card-content">
+                    <div class="modal-header">
+                        <div class="modal-icon" style="background-color: #000000;">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Quiz Dutoviário</h3>
+                    </div>
+                    <p>5 perguntas sobre transporte por dutos</p>
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Progresso</span>
+                            <span id="progress-dutoviario">0/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-bar-dutoviario" style="width: 0%; background-color: #000000;"></div>
+                        </div>
+                    </div>
+                    <a href="quiz-dutoviario.html" class="btn btn-primary" style="background-color: #000000; width: 100%; justify-content: center; margin-top: 1rem;">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-card-content">
+                    <div class="modal-header">
+                        <div class="modal-icon" style="background-color: #8B4513;">
+                            <i class="fas fa-train"></i>
+                        </div>
+                        <h3>Quiz Ferroviário</h3>
+                    </div>
+                    <p>5 perguntas sobre transporte ferroviário</p>
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Progresso</span>
+                            <span id="progress-ferroviario">0/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-bar-ferroviario" style="width: 0%; background-color: #8B4513;"></div>
+                        </div>
+                    </div>
+                    <a href="quiz-ferroviario.html" class="btn btn-primary" style="background-color: #000000; width: 100%; justify-content: center; margin-top: 1rem;">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-card-content">
+                    <div class="modal-header">
+                        <div class="modal-icon" style="background-color: #0066CC;">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3>Quiz Hidroviário</h3>
+                    </div>
+                    <p>5 perguntas sobre transporte aquático</p>
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Progresso</span>
+                            <span id="progress-hidroviario">0/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-bar-hidroviario" style="width: 0%; background-color: #0066CC;"></div>
+                        </div>
+                    </div>
+                    <a href="quiz-hidroviario.html" class="btn btn-primary" style="background-color: #000000; width: 100%; justify-content: center; margin-top: 1rem;">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-card-content">
+                    <div class="modal-header">
+                        <div class="modal-icon" style="background-color: #808080;">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Quiz Rodoviário</h3>
+                    </div>
+                    <p>5 perguntas sobre transporte rodoviário</p>
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Progresso</span>
+                            <span id="progress-rodoviario">0/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-bar-rodoviario" style="width: 0%; background-color: #808080;"></div>
+                        </div>
+                    </div>
+                    <a href="quiz-rodoviario.html" class="btn btn-primary" style="background-color: #000000; width: 100%; justify-content: center; margin-top: 1rem;">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-card-content">
+                    <div class="modal-header">
+                        <div class="modal-icon" style="background-color: #CC0000;">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>Quiz Aéreo</h3>
+                    </div>
+                    <p>5 perguntas sobre transporte aéreo</p>
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Progresso</span>
+                            <span id="progress-aereo">0/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-bar-aereo" style="width: 0%; background-color: #CC0000;"></div>
+                        </div>
+                    </div>
+                    <a href="quiz-aereo.html" class="btn btn-primary" style="background-color: #000000; width: 100%; justify-content: center; margin-top: 1rem;">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </a>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white;">
+                <div class="quiz-card-content">
+                    <div class="modal-header">
+                        <div class="modal-icon" style="background-color: rgba(255,255,255,0.2);">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Desafio Completo</h3>
+                    </div>
+                    <p>Complete todos os 5 quiz e ganhe um brinde especial!</p>
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Modais Concluídos</span>
+                            <span id="total-completed">0/5</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="total-progress-bar" style="width: 0%; background-color: white;"></div>
+                        </div>
+                    </div>
+                    <button class="btn" id="complete-challenge-btn" style="background-color: white; color: #f59e0b; width: 100%; justify-content: center; margin-top: 1rem;" disabled>
+                        <i class="fas fa-gift"></i> Receber Brinde
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section><br><br><br><br>
+
+    <div class="modal" id="prize-modal" style="display: none;">
+        <div class="modal-content">
+            <div style="text-align: center; padding: 2rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎁</div>
+                <h2 style="margin-bottom: 1rem;">Parabéns!</h2>
+                <p id="prize-message" style="margin-bottom: 2rem;"></p>
+                <button class="btn btn-primary" onclick="closePrizeModal()">Continuar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/quiz.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Rodoviário - Modais de Transporte</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-rodoviario">
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-title">🚛 Modais de Transporte</h1>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <a href="maquete.html" class="nav-link">Maquete 3D</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="modal-detail-header">
+        <div class="container">
+            <div class="modal-detail-icon">🛣️</div>
+            <h1>Modal Rodoviário</h1>
+            <p>Transporte terrestre por estradas e rodovias</p>
+        </div>
+    </section><br><br>
+
+  <section class="quiz-container">
+    <div class="container">
+      <h2><i class="fas fa-truck"></i> Quiz Rodoviário</h2>
+      <h3><p>Responda as perguntas sobre transporte rodoviário!</p></h3><br>
+      <form id="quiz-form-rodoviario">
+        <div class="quiz-question">
+          <h3>1. O que caracteriza o transporte rodoviário?</h3>
+          <label><input type="radio" name="q1" value="0"> A utilização de navios e balsas</label><br>
+          <label><input type="radio" name="q1" value="1"> O uso de ferrovias para transportar cargas</label><br>
+          <label><input type="radio" name="q1" value="2"> A movimentação em estradas, ruas e rodovias com veículos</label><br>
+          <label><input type="radio" name="q1" value="3"> O transporte aéreo de passageiros e mercadorias</label><br>
+        </div><br>
+        
+        <div class="quiz-question">
+          <h3>2. Qual é a principal vantagem do transporte rodoviário?</h3>
+          <label><input type="radio" name="q2" value="0"> Capacidade ilimitada de carga</label><br>
+          <label><input type="radio" name="q2" value="1"> Custo mais baixo que todos os outros modais</label><br>
+          <label><input type="radio" name="q2" value="2"> Flexibilidade e entrega porta a porta</label><br>
+          <label><input type="radio" name="q2" value="3"> Baixo impacto ambiental</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>3. Como é chamada a carga em que várias encomendas de clientes diferentes estão em um mesmo veículo?</h3>
+          <label><input type="radio" name="q3" value="0"> Carga lotação</label><br>
+          <label><input type="radio" name="q3" value="1"> Carga exclusiva</label><br>
+          <label><input type="radio" name="q3" value="2"> Carga fracionada</label><br>
+          <label><input type="radio" name="q3" value="3"> Carga prioritária</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>4. Quais são algumas desvantagens do transporte rodoviário?</h3>
+          <label><input type="radio" name="q4" value="0"> Baixa frequência e pouca flexibilidade</label><br>
+          <label><input type="radio" name="q4" value="1"> Alto custo com combustível, acidentes e poluição</label><br>
+          <label><input type="radio" name="q4" value="2"> Falta de integração com outros modais</label><br>
+          <label><input type="radio" name="q4" value="3"> Limitação apenas para transporte de passageiros</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>5. No Brasil, qual é a importância do transporte rodoviário?</h3>
+          <label><input type="radio" name="q5" value="0"> Representa menos de 20% da movimentação de cargas</label><br>
+          <label><input type="radio" name="q5" value="1"> É pouco utilizado devido às ferrovias</label><br>
+          <label><input type="radio" name="q5" value="2"> Movimenta cerca de 60% a 65% das mercadorias do país</label><br>
+          <label><input type="radio" name="q5" value="3"> É usado apenas em regiões rurais e pequenas cidades</label><br>
+        </div><br><br>
+
+        <button type="submit" class="btn btn-dark"><i class="fas fa-play"></i> Enviar Respostas</button>
+
+      </form>
+      <div id="quiz-result" style="margin-top:1rem; font-weight:bold;"></div>
+    </div>
+  </section><br><br><br><br>
+  
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('quiz-form-rodoviario');
+      const resultDiv = document.getElementById('quiz-result');
+      const quiz = quizData.rodoviario;
+      const correctAnswers = quiz.questions.map(q => q.correct);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let score = 0;
+        let incorrectQuestions = [];
+        
+        const formData = new FormData(form);
+        const userAnswers = {};
+        for (let [key, value] of formData.entries()) {
+          userAnswers[key] = parseInt(value);
+        }
+
+        correctAnswers.forEach((correct, index) => {
+          const questionName = `q${index + 1}`;
+          const userAnswer = userAnswers[questionName];
+          if (userAnswer === correct) {
+            score++;
+          } else {
+            incorrectQuestions.push(index + 1);
+          }
+        });
+
+        const message = score >= 3 ? 
+          `Parabéns! Você acertou ${score} de 5 questões.` :
+          `Você acertou ${score} de 5 questões. Tente novamente para ganhar um prêmio!`;
+
+        resultDiv.textContent = message;
+
+        // Salvar a pontuação e redirecionar
+        quizManager.updateScore('rodoviario', score);
+        
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>

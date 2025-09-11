@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Ferroviário - Modais de Transporte</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="theme-ferroviario">
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="nav-title">🚛 Modais de Transporte</h1>
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Início</a>
+          <a href="quiz.html" class="nav-link">Quiz</a>
+          <a href="maquete.html" class="nav-link">Maquete 3D</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+      <section class="modal-detail-header">
+        <div class="container">
+            <div class="modal-detail-icon">🚂</div>
+            <h1>Modal Ferroviário</h1>
+            <p>Transporte de cargas e passageiros sobre trilhos</p>
+        </div>
+    </section><br><br>
+
+  <section class="quiz-container">
+    <div class="container"><br>
+      <h2><i class="fas fa-train"></i> Quiz Ferroviário</h2>
+      <h3><p>Responda as perguntas sobre transporte ferroviário!</p></h3><br>
+      <form id="quiz-form-ferroviario">
+        <div class="quiz-question">
+          <h3>1. O transporte ferroviário pertence a qual grupo?</h3>
+          <label><input type="radio" name="q1" value="0"> Transporte aéreo</label><br>
+          <label><input type="radio" name="q1" value="1"> Transporte aquaviário</label><br>
+          <label><input type="radio" name="q1" value="2"> Transporte terrestre</label><br>
+          <label><input type="radio" name="q1" value="3"> Transporte rodoviário</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>2. Qual é o principal uso do transporte ferroviário no Brasil?</h3>
+          <label><input type="radio" name="q2" value="0"> Transporte de passageiros de longa distância</label><br>
+          <label><input type="radio" name="q2" value="1"> Transporte de minérios e produtos agrícolas</label><br>
+          <label><input type="radio" name="q2" value="2"> Turismo ferroviário</label><br>
+          <label><input type="radio" name="q2" value="3"> Transporte urbano</label><br>
+        </div><br>
+        
+        <div class="quiz-question">
+          <h3>3. Qual das alternativas abaixo NÃO é uma vantagem do transporte ferroviário?</h3>
+          <label><input type="radio" name="q3" value="0"> Custo baixo</label><br>
+          <label><input type="radio" name="q3" value="1"> Baixo índice de roubos</label><br>
+          <label><input type="radio" name="q3" value="2"> Percorre longas distâncias</label><br>
+          <label><input type="radio" name="q3" value="3"> Grande número de linhas férreas disponíveis no Brasil</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>4. Qual foi o produto responsável pela expansão inicial das ferrovias no Brasil no século XIX?</h3>
+          <label><input type="radio" name="q4" value="0"> Café</label><br>
+          <label><input type="radio" name="q4" value="1"> Soja</label><br>
+          <label><input type="radio" name="q4" value="2"> Minério de ferro</label><br>
+          <label><input type="radio" name="q4" value="3"> Carvão</label><br>
+        </div><br>
+
+        <div class="quiz-question">
+          <h3>5. Quantos quilômetros, aproximadamente, possui a malha ferroviária brasileira?</h3>
+          <label><input type="radio" name="q5" value="0"> 10 mil km</label><br>
+          <label><input type="radio" name="q5" value="1"> 20 mil km</label><br>
+          <label><input type="radio" name="q5" value="2"> 30 mil km</label><br>
+          <label><input type="radio" name="q5" value="3"> 50 mil km</label><br>
+        </div><br><br>
+
+        <button type="submit" class="btn btn-dark"><i class="fas fa-play"></i> Enviar Respostas</button>
+
+      </form>
+      <div id="quiz-result" style="margin-top:1rem; font-weight:bold;"></div>
+    </div>
+  </section><br><br><br><br>
+  
+  <script src="js/quiz.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('quiz-form-ferroviario');
+      const resultDiv = document.getElementById('quiz-result');
+      const quiz = quizData.ferroviario;
+      const correctAnswers = quiz.questions.map(q => q.correct);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let score = 0;
+        let incorrectQuestions = [];
+        
+        const formData = new FormData(form);
+        const userAnswers = {};
+        for (let [key, value] of formData.entries()) {
+          userAnswers[key] = parseInt(value);
+        }
+
+        correctAnswers.forEach((correct, index) => {
+          const questionName = `q${index + 1}`;
+          const userAnswer = userAnswers[questionName];
+          if (userAnswer === correct) {
+            score++;
+          } else {
+            incorrectQuestions.push(index + 1);
+          }
+        });
+
+        const message = score >= 3 ? 
+          `Parabéns! Você acertou ${score} de 5 questões.` :
+          `Você acertou ${score} de 5 questões. Tente novamente para ganhar um prêmio!`;
+
+        resultDiv.textContent = message;
+
+        // Salvar a pontuação e redirecionar
+        quizManager.updateScore('ferroviario', score);
+        
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 3000);
+      });
+    });
+  </script>
+</body>
+</html>
